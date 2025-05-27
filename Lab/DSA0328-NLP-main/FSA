@@ -1,0 +1,23 @@
+class FSA:
+    def __init__(self):
+        self.state = 0
+    
+    def process(self, char):
+        if char == 'a':
+            self.state = 1
+        elif char == 'b' and self.state == 1:
+            self.state = 2
+        else:
+            self.state = 0
+    
+    def accepts(self, string):
+        self.state = 0
+        for char in string:
+            self.process(char)
+        return self.state == 2
+
+fsa = FSA()
+tests = ["ab", "aab", "baba", "xyzab"]
+for s in tests:
+    print(f"'{s}' accepted? {fsa.accepts(s)}")
+    

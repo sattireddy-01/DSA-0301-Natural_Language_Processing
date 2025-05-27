@@ -1,0 +1,13 @@
+import re
+txt = "The quick brown fox jumps over the lazy dog. The fox is clever."
+pattern = "fox"
+match = re.search(pattern, txt)
+if match:
+    print("Found:", match.group())
+matches = re.findall(pattern, txt)
+print("Occurrences:", matches)
+modified_txt = re.sub(pattern, "cat", txt)
+print("Modified:", modified_txt)
+special_pattern = "\bT\w+"
+special_matches = re.findall(special_pattern, txt)
+print("Words with T:", special_matches)
